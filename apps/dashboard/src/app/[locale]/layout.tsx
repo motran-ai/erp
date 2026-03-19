@@ -13,6 +13,7 @@ import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://erp.motran.ai"),
+  robots: { index: false, follow: false },
   title: "Motran ERP | Business Finance Management",
   description:
     "Manage transactions, invoices, and business finances in one place.",
