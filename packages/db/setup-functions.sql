@@ -1,5 +1,15 @@
 -- Prerequisites for Drizzle schema push
 -- Run this against Supabase before `bunx drizzle-kit push`
+--
+-- IMPORTANT: After running `drizzle-kit push`, check for camelCase columns:
+--   SELECT table_name, column_name FROM information_schema.columns
+--   WHERE table_schema = 'public' AND column_name ~ '[A-Z]';
+-- Drizzle may create camelCase columns (e.g. "baseBalance") instead of
+-- snake_case ("base_balance"). Rename them manually:
+--   ALTER TABLE bank_accounts RENAME COLUMN "baseBalance" TO base_balance;
+--   ALTER TABLE customers RENAME COLUMN "billingEmail" TO billing_email;
+--   ALTER TABLE invoice_products RENAME COLUMN "isActive" TO is_active;
+--   ALTER TABLE transactions RENAME COLUMN "baseAmount" TO base_amount;
 
 -- Extensions
 CREATE EXTENSION IF NOT EXISTS "pg_trgm" WITH SCHEMA "public";
