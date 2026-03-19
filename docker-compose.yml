@@ -1,0 +1,49 @@
+x-logging: &default-logging
+  driver: json-file
+  options:
+    max-size: "50m"
+    max-file: "5"
+
+services:
+  erp-dashboard:
+    build:
+      context: .
+      dockerfile: apps/dashboard/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3002:3000"
+    env_file: .env
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  erp-api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8081:8080"
+    env_file: .env
+    logging: *default-logging
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  erp-worker:
+    build:
+      context: .
+      dockerfile: apps/worker/Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    logging: *default-logging
+
+networks:
+  default:
+    name: motran
+    external: true
