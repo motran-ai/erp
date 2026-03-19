@@ -12,43 +12,33 @@ import { isDesktopApp } from "@/utils/desktop";
 import { Providers } from "./providers";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://app.midday.ai"),
-  title: "Midday | Your AI-Powered Business Assistant",
+  metadataBase: new URL("https://erp.motran.ai"),
+  title: "Motran ERP | Business Finance Management",
   description:
-    "Automate financial tasks, stay organized, and make informed decisions effortlessly.",
+    "Manage transactions, invoices, and business finances in one place.",
   twitter: {
-    title: "Midday | Your AI-Powered Business Assistant",
+    title: "Motran ERP | Business Finance Management",
     description:
-      "Automate financial tasks, stay organized, and make informed decisions effortlessly.",
+      "Manage transactions, invoices, and business finances in one place.",
     images: [
       {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
-        width: 1800,
-        height: 1600,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
       },
     ],
   },
   openGraph: {
-    title: "Midday | Your AI-Powered Business Assistant",
+    title: "Motran ERP | Business Finance Management",
     description:
-      "Automate financial tasks, stay organized, and make informed decisions effortlessly.",
-    url: "https://app.midday.ai",
-    siteName: "Midday",
+      "Manage transactions, invoices, and business finances in one place.",
+    url: "https://erp.motran.ai",
+    siteName: "Motran ERP",
     images: [
       {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
-        width: 800,
-        height: 600,
-      },
-      {
-        url: "https://cdn.midday.ai/opengraph-image-v1.jpg",
-        width: 1800,
-        height: 1600,
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
       },
     ],
     locale: "en_US",
